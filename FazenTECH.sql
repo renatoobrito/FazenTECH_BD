@@ -42,6 +42,12 @@ CREATE TABLE equipamento (
   preço FLOAT NOT NULL
 );
 
+CREATE TABLE varejistas (
+  id INT NOT NULL IDENTITY PRIMARY KEY,
+  nome VARCHAR(30) NOT NULL,
+  cnpj VARCHAR(18) NOT NULL
+);
+
 
 SELECT * FROM funcionarios;
 
@@ -141,3 +147,14 @@ VALUES
 ('Colheitadeira', 'Maquinário', 1, 270000),
 ('4x4 da Fazenda', 'Veículo', 3, 139000),
 ('Carroça', 'Veículo', 3, 600);
+
+
+SELECT * FROM varejistas;
+
+INSERT INTO varejistas
+VALUES
+('Mercearia Bartolomeu', 31850912000186),
+('Mercearia do China', 08055774000121),
+('Hortifruti do Gaspar', 00519158000172),
+('Sacolão do Zé', 21394647000115),
+('Mercadinho da Esquina', 65299774000100);
