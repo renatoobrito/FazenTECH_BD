@@ -1,3 +1,4 @@
+-- DDL - (Data Definition Language)
 CREATE DATABASE fazendabd;
 USE fazendabd;
 
@@ -30,7 +31,7 @@ CREATE TABLE produtos (
   tipo VARCHAR(20) NOT NULL,
   qtd_kg_L INT NOT NULL,
   estoque CHAR(3) CHECK(estoque IN('Sim', 'Não')) NOT NULL DEFAULT 'Sim',
-  preço FLOAT NOT NULL
+  preco FLOAT NOT NULL
 );
 
 CREATE TABLE equipamento (
@@ -39,7 +40,7 @@ CREATE TABLE equipamento (
   tipo VARCHAR(20) NOT NULL,
   qtd INT NOT NULL,
   estoque CHAR(3) CHECK(estoque IN('Sim', 'Não')) NOT NULL DEFAULT 'Sim',
-  preço FLOAT NOT NULL
+  preco FLOAT NOT NULL
 );
 
 CREATE TABLE varejistas (
@@ -49,8 +50,7 @@ CREATE TABLE varejistas (
 );
 
 
-SELECT * FROM funcionarios;
-
+-- DML - (Data Manipulation Language)
 INSERT INTO funcionarios
 VALUES
 ('Ademar', 66804160440, 2800),
@@ -75,17 +75,14 @@ VALUES
 ('Thiago', 70903590307, 2900);
 
 
-SELECT * FROM producao_de_leite;
-
 INSERT INTO producao_de_leite
 VALUES
 ('Holandesa', '2020/10/28', 37, 25, 1, 'Sim', 'Positivo', 403),
 ('Jersey', '2020/10/26', 38, 26, 1, 'Sim', 'Positivo', 409),
 ('Pardo Suiço', '2020/10/24', 37, 25, 1, 'Sim', 'Positivo', 421);
 
-SELECT * FROM produtos;
 
-INSERT INTO produtos (nome, tipo, qtd_kg_L, preço)
+INSERT INTO produtos (nome, tipo, qtd_kg_L, preco)
 VALUES
 ('Leite', 'Laticínio', 2300, 1.585),
 ('Queijo', 'Laticínio', 600, 70),
@@ -133,9 +130,7 @@ VALUES
 ('Pepino', 'Legume', 60, 35);
 
 
-SELECT * FROM equipamento;
-
-INSERT INTO equipamento (nome, tipo, qtd, preço)
+INSERT INTO equipamento (nome, tipo, qtd, preco)
 VALUES
 ('Pá', 'Ferramenta', 10, 19.90),
 ('Enxada', 'Ferramenta', 10, 23.90),
@@ -149,8 +144,6 @@ VALUES
 ('Carroça', 'Veículo', 3, 600);
 
 
-SELECT * FROM varejistas;
-
 INSERT INTO varejistas
 VALUES
 ('Mercearia Bartolomeu', 31850912000186),
@@ -158,3 +151,9 @@ VALUES
 ('Hortifruti do Gaspar', 00519158000172),
 ('Sacolão do Zé', 21394647000115),
 ('Mercadinho da Esquina', 65299774000100);
+
+SELECT * FROM funcionarios WHERE salario > 3500;
+SELECT min_ruminacao_dia FROM producao_de_leite;
+SELECT * FROM produtos WHERE tipo = 'fruta';
+SELECT * FROM equipamento WHERE preco > 20 AND tipo = 'Vestuário';
+SELECT * FROM varejistas;
